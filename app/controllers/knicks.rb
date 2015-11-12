@@ -1,10 +1,10 @@
 get '/knicks/index' do
   @knicks = Knick.order(:created_at)
-  erb :'index'
+  erb :'knicks/index'
 end
 
 get '/knicks/new' do
-  erb :'new'
+  erb :'knicks/new'
 end
 
 post '/knicks' do
@@ -13,27 +13,28 @@ post '/knicks' do
     redirect "/knicks/#{@knick.id}"
   else
     @errors = @knick.errors.full_messages
-    erb :'new'
+    erb :'knicks/new'
   end
 end
 
 get '/knicks/:id' do
   @knick = Knick.find(params[:id])
-  erb :'show'
+  erb :'knicks/show'
 end
 
 get '/knicks/:id/edit' do
   @knick = Knick.find(params[:id])
-  erb :'edit'
+  @knicks = Knick.all
+  erb :'knicks/edit'
 end
 
-post '/knicks/:id' do
+put '/knicks/:id' do
   knick = Knick.find(params[:id])
   knick.update_attributes(params[:knick])
   redirect "/knicks/#{knick.id}"
 end
 
-get '/knicks/:id/delete' do
+delete '/knicks/:id' do
   knick = Knick.find(params[:id])
   knick.destroy
   redirect '/knicks/index'
