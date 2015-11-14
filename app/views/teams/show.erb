@@ -1,0 +1,5 @@
+<h1><%= @team.team_name %> Roster</h1>
+
+<% @team.players.each do |player| %>
+<ol><a href="/players/<%= player.id %>"><%= player.name %></a></ol>
+<% end %>
