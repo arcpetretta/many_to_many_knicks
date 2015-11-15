@@ -1,0 +1,15 @@
+<h1>Games:</h1>
+
+<% @games.each do |game| %>
+  <p>
+  <a href="/games/<%= game.id %>">
+    <%= game.opposing_team %>
+
+  vs.
+
+    <% game.teams.each do |team| %>
+      <%= team.team_name %>
+    <% end %>
+  </a>
+  </p>
+<% end %>

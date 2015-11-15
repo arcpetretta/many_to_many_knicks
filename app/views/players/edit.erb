@@ -1,0 +1,23 @@
+<h1>Edit This Player!</h1>
+
+<main class="create_player" role ="main">
+  <form method="post" action="/players/<%=@player.id%>">
+    <input type="hidden" name="_method" value="PUT" />
+
+    <label>Name:</label>
+    <input id="edit_player" name="player[name]" type="text" value="<%=@player.try(:name)%>">
+
+
+    <label for="jersey_number">Jersey Number:</label>
+
+    <input id="jersey_number" name="player[jersey_number]" type= "text" value="<%=@player.try(:jersey_number)%>">
+
+    <label for="position">Position:</label>
+
+    <input id="position" name="player[position]" type="text" value="<%=@player.try(:position)%>">
+
+    <input type="submit" value="Edit Player!" class="button">
+  </form>
+
+  <a href='/teams/index'>Go back to teams index.</a>
+</main>

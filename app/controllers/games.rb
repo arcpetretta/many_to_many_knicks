@@ -38,3 +38,9 @@ delete '/games/:id' do
   game.destroy
   redirect '/games/index'
 end
+
+# get '/games/:id/players/:player_id' do
+#   @game = Game.find(params[:id])
+#   @player = Player.find(params[:player_id])
+#   erb :'games/show'
+# end

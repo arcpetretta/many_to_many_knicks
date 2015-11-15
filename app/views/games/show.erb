@@ -1,0 +1,10 @@
+<h1>Game Info</h1>
+
+<p>
+  <%= @game.opposing_team %>
+
+  vs.
+  <% @game.teams.each do |team|%>
+  <%= team.team_name %>
+  <% end %>
+</p>

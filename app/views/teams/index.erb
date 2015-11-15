@@ -1,0 +1,8 @@
+<h1>Welcome to the NBA Homepage</h1>
+
+<% @teams.each do |team| %>
+<li><a href="/teams/<%= team.id %>"><%= team.team_name %></li>
+<% end %>
+
+
+<a href='/games/index'>Games!</a>
